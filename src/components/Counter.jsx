@@ -1,8 +1,9 @@
 import React, { useMemo, useState } from "react";
 import styles from "./Counter.module.css";
 
-function Counter({ step = 1, emitCounterValue }) {
+function Counter({ step: initialStep = 1, emitCounterValue }) {
   const [count, setCount] = useState(0);
+  const [step, setStep] = useState(initialStep);
 
   const isNegative = useMemo(() => {
     console.log("memoized: runs only when dependencies (count) change");
@@ -41,6 +42,20 @@ function Counter({ step = 1, emitCounterValue }) {
       >
         🚫
       </button>
+
+      <br />
+      <label htmlFor="step">Step</label>
+      <input
+        type="number"
+        name="step"
+        id="step"
+        value={step}
+        onChange={(e) => {
+          setStep(parseInt(e.target.value) || 0);
+        }}
+      />
+      <br />
+
       <button onClick={() => emitCounterValue(step, count)}>EmitValue</button>
     </div>
   );
