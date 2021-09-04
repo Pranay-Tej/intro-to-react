@@ -34,7 +34,7 @@
 
 - [x] Text input
 - [x] Number
-- [x] Date
+- [x] Date (`npm i` to install date-fns`)
 - [x] Time
 - [x] Select
 - [x] Multi Select
