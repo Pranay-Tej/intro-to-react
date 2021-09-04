@@ -41,6 +41,18 @@ function Counter({ step = 1, emitCounterValue }) {
       >
         🚫
       </button>
+
+      <br />
+      <label htmlFor="step">Step</label>
+      <input
+        type="number"
+        name="step"
+        id="step"
+        // value={TODO}
+        // onChange={TODO}
+      />
+      <br />
+
       <button onClick={() => emitCounterValue(step, count)}>EmitValue</button>
     </div>
   );

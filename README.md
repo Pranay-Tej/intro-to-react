@@ -11,6 +11,8 @@
 - Solution for current task will be available in next task's branch
 - Checkout to `1` branch to get started with the first assignment
 
+---
+
 ### 1. Counter functionality
 
 - [x] Create counter Component
@@ -27,3 +29,16 @@
   - [x] Blue when number >= 0
 
 - [x] Emit `<Counter />` value back to parent
+
+### 2. Forms
+
+- [x] Text input
+- [x] Number
+- [x] Date
+- [x] Time
+- [x] Select
+- [x] Multi Select
+- [x] Radio group
+- [x] Checkbox group
+- [ ] Input bind for step size
+- [ ] Dynamic form array
