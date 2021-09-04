@@ -4,8 +4,10 @@ import styles from "./Counter.module.css";
 function Counter({ step = 1 }) {
   const [count, setCount] = useState(0);
 
-  // TODO
-  const isNegative = false;
+  const isNegative = useMemo(() => {
+    console.log("memoized: runs only when dependencies (count) change");
+    return count < 0 ? true : false;
+  }, [count]);
 
   const handleIncrease = () => {
     console.log(`increasing count by ${step} units`);
@@ -26,12 +28,16 @@ function Counter({ step = 1 }) {
 
       <button onClick={handleIncrease}>⬆️ {step}</button>
       <button
-      // onClick={TODO}
+        onClick={() => {
+          setCount((presentCount) => presentCount - step);
+        }}
       >
         ⬇️ {step}
       </button>
       <button
-      // onClick={TODO}
+        onClick={() => {
+          setCount(0);
+        }}
       >
         🚫
       </button>
