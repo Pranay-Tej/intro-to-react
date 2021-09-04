@@ -11,3 +11,5 @@
 
   - [ ] Red when number < 0
   - [ ] Blue when number >= 0
+
+- [ ] Emit `<Counter />` value back to parent

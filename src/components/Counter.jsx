@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 import styles from "./Counter.module.css";
 
-function Counter({ step = 1 }) {
+function Counter({ step = 1, emitCounterValue }) {
   const [count, setCount] = useState(0);
 
   // TODO
@@ -34,6 +34,11 @@ function Counter({ step = 1 }) {
       // onClick={TODO}
       >
         🚫
+      </button>
+      <button
+      // onClick={TODO}
+      >
+        EmitValue
       </button>
     </div>
   );
