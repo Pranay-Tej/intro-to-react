@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 import styles from "./Counter.module.css";
 
-function Counter({ step = 1 }) {
+function Counter({ step = 1, emitCounterValue }) {
   const [count, setCount] = useState(0);
 
   const isNegative = useMemo(() => {
@@ -41,6 +41,7 @@ function Counter({ step = 1 }) {
       >
         🚫
       </button>
+      <button onClick={() => emitCounterValue(step, count)}>EmitValue</button>
     </div>
   );
 }

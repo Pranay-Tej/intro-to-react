@@ -4,10 +4,14 @@ import "./App.css";
 import Counter from "./components/Counter";
 
 function App() {
+  const printCounterValue = (step, value) => {
+    console.log({ step, value });
+  };
+
   return (
     <div className="App">
-      <Counter />
-      <Counter step={10} />
+      <Counter emitCounterValue={printCounterValue} />
+      <Counter step={10} emitCounterValue={printCounterValue} />
     </div>
   );
 }
