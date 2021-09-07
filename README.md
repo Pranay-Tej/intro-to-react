@@ -42,3 +42,16 @@
 - [x] Checkbox group
 - [x] Input bind for step size
 - [x] Dynamic form array
+
+### 3. CRUD App
+
+- [x] JSON Server `npm i -D json-server`
+- [x] Axios `npm i axios`
+- [x] Install packages `npm i`
+- [x] Run API `npm run api`
+- [x] fetchAll
+- [ ] fetchById
+- [x] create
+- [ ] updateById
+- [ ] deleteById
+- [ ] Bonus: highlight the selected item when editing

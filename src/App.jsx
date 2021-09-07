@@ -11,6 +11,8 @@ import RadioGroup from "./components/forms/RadioGroup";
 import CheckboxGroup from "./components/forms/CheckboxGroup";
 import DynamicFormArray from "./components/forms/DynamicFormArray";
 
+import TodoList from "./components/TodoList";
+
 function App() {
   const printCounterValue = (step, value) => {
     console.log({ step, value });
@@ -63,6 +65,10 @@ function App() {
         initialValue={["React", "Angular"]}
       />
       <DynamicFormArray />
+
+      <hr />
+
+      <TodoList />
     </div>
   );
 }
