@@ -70,3 +70,8 @@
 - [x] Lazy load routes
   - [x] `lazy`, `Suspense`
 - [x] Bonus: Add `404 NOT FOUND` route
+
+### 5. Custom hooks
+
+- [ ] useAxios custom hook/re-usable logic
+  - [ ] data, isLoading, errorMessage
