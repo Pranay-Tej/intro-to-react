@@ -55,3 +55,18 @@
 - [x] updateById
 - [x] deleteById
 - [x] Bonus: highlight the selected item when editing
+
+### 4. Routing
+
+- [x] react-router `npm i react-router-dom`
+- [x] `BrowserRouter`, `Switch`, `Link`, `Route`
+- [x] Set Counters Route
+- [x] Set Forms Route
+- [x] Set Todos route
+- [x] Nested & Dynamic routes
+  - [x] `useRouteMatch()`, `path`, `url`
+  - [x] `useParams()`
+  - [x] Programmatic Navigation `useHistory()`
+- [x] Lazy load routes
+  - [x] `lazy`, `Suspense`
+- [x] Bonus: Add `404 NOT FOUND` route
