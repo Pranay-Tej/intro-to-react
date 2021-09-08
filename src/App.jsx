@@ -1,18 +1,13 @@
 import React, { lazy, Suspense } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-// import TodoList from "./views/TodoList";
-// import Forms from "./views/Forms";
-// import Home from "./views/Home";
-// import Counters from "./views/Counters";
-// import Expenses from "./views/expenses/Expenses";
-// import NotFound from "./views/NotFound";
 
 const TodoList = lazy(() => import("./views/TodoList"));
 const Forms = lazy(() => import("./views/Forms"));
 const Home = lazy(() => import("./views/Home"));
 const Counters = lazy(() => import("./views/Counters"));
 const Expenses = lazy(() => import("./views/expenses/Expenses"));
+const TodoListCustomHook = lazy(() => import("./views/TodoListCustomHook"));
 const NotFound = lazy(() => import("./views/NotFound"));
 
 function App() {
@@ -37,6 +32,9 @@ function App() {
               <li>
                 <Link to="/expenses">Expenses</Link>
               </li>
+              <li>
+                <Link to="/custom-hook">TodoList Custom Hook</Link>
+              </li>
             </ul>
           </nav>
           <Suspense fallback={<div>Loading...</div>}>
@@ -55,6 +53,9 @@ function App() {
               </Route>
               <Route path="/expenses">
                 <Expenses />
+              </Route>
+              <Route path="/custom-hook">
+                <TodoListCustomHook />
               </Route>
               <Route path="/**">
                 <NotFound />
