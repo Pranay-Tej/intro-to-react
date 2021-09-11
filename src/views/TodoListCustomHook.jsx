@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useAxios from "../hooks/useAxios";
 
 function TodoListCustomHook() {
+  useEffect(() => fetchAll(), []);
+
   const {
     data: todoList,
     isLoading,
     errorMessage,
+    execute: fetchAll,
   } = useAxios(`http://localhost:3001/todos`);
 
   return (

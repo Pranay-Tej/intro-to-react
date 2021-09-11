@@ -6,7 +6,7 @@ export default function useAxios(url, options = null) {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
 
-  useEffect(() => execute(), []);
+  // useEffect(() => execute(), []);
 
   const execute = () => {
     setIsLoading(true);

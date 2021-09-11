@@ -75,3 +75,11 @@
 
 - [x] useAxios custom hook/re-usable logic
   - [x] data, isLoading, errorMessage
+
+### 6. Context API
+
+- [x] `createContext()`
+- [x] `Context.Provider`, `value`
+- [x] `<ContextProvider />` custom component
+- [x] `useContext()`
+- [x] `useReducer()` for redux pattern

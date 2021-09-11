@@ -7,6 +7,7 @@ const Forms = lazy(() => import("./views/Forms"));
 const Home = lazy(() => import("./views/Home"));
 const Counters = lazy(() => import("./views/Counters"));
 const Expenses = lazy(() => import("./views/expenses/Expenses"));
+const Context = lazy(() => import("./views/context/Context"));
 const TodoListCustomHook = lazy(() => import("./views/TodoListCustomHook"));
 const NotFound = lazy(() => import("./views/NotFound"));
 
@@ -35,8 +36,12 @@ function App() {
               <li>
                 <Link to="/custom-hook">TodoList Custom Hook</Link>
               </li>
+              <li>
+                <Link to="/context">Context</Link>
+              </li>
             </ul>
           </nav>
+          <hr />
           <Suspense fallback={<div>Loading...</div>}>
             <Switch>
               <Route exact path="/">
@@ -56,6 +61,9 @@ function App() {
               </Route>
               <Route path="/custom-hook">
                 <TodoListCustomHook />
+              </Route>
+              <Route path="/context">
+                <Context />
               </Route>
               <Route path="/**">
                 <NotFound />
