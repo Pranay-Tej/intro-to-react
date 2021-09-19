@@ -86,6 +86,7 @@
 
 ### 7. State Management (Zustand)
 
+- [x] zustand `npm i zustand`
 - [x] `create` store
 - [x] `useStore`
 - [x] `set`, `get`, `state`
