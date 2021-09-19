@@ -1,0 +1,12 @@
+.count {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.positive {
+  color: hsl(200, 60%, 40%);
+}
+
+.negative {
+  color: hsl(0, 60%, 50%);
+}

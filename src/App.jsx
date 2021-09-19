@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Zustand from "./views/zustand/Zustand";
 
 const TodoList = lazy(() => import("./views/TodoList"));
 const Forms = lazy(() => import("./views/Forms"));
@@ -39,6 +40,9 @@ function App() {
               <li>
                 <Link to="/context">Context</Link>
               </li>
+              <li>
+                <Link to="/zustand">Zustand</Link>
+              </li>
             </ul>
           </nav>
           <hr />
@@ -64,6 +68,9 @@ function App() {
               </Route>
               <Route path="/context">
                 <Context />
+              </Route>
+              <Route path="/zustand">
+                <Zustand />
               </Route>
               <Route path="/**">
                 <NotFound />
