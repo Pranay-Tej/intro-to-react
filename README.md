@@ -83,3 +83,19 @@
 - [x] `<ContextProvider />` custom component
 - [x] `useContext()`
 - [x] `useReducer()` for redux pattern
+
+### 7. State Management (Zustand)
+
+- [x] `create` store
+- [x] `useStore`
+- [x] `set`, `get`, `state`
+- [x] `devtools`
+- [x] Counter
+- [x] async events
+- [x] Chaining events
+- [ ] Check Zustand's [GitHub](https://github.com/pmndrs/zustand) for more info
+  - [ ] Memoizing selectors
+  - [ ] Usage with Immer
+  - [ ] Redux like store
+  - [ ] Splitting store into slices
+  - [ ] Middleware
