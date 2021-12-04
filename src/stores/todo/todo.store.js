@@ -2,6 +2,8 @@ import axios from "axios";
 import create from "zustand";
 import { devtools } from "zustand/middleware";
 
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+
 const useTodoStore = create(
   devtools((set) => ({
     todoList: [],
@@ -10,7 +12,7 @@ const useTodoStore = create(
     fetchAll: async () => {
       try {
         set({ isLoading: true });
-        const res = await axios("http://localhost:3001/todos");
+        const res = await axios(`${BASE_URL}/todos`);
         set({ todoList: res.data });
       } catch (error) {
         console.error(error.message);

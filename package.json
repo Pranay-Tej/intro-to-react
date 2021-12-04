@@ -3,7 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
+    "dev:test": "vite serve --mode test",
+    "dev:apple": "vite serve --mode apple",
     "build": "vite build",
+    "build:apple": "vite build --mode apple",
+    "build:samsung": "vite build --mode samsung",
+    "build:amazon": "export VITE_TENANT=amazon && vite build",
     "serve": "vite preview",
     "api": "json-server --watch db.json --port 3001"
   },

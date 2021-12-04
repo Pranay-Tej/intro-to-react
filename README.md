@@ -103,7 +103,7 @@
 
 ### 8. Multiple Configurations
 
-- [ ] env variables configuration
-- [ ] npm scripts
-  - [ ] multiple dev setups
-  - [ ] multiple prod builds
+- [x] env variables configuration
+- [x] npm scripts
+  - [x] multiple dev setups
+  - [x] multiple prod builds
