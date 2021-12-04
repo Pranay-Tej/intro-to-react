@@ -1,39 +1,37 @@
-import React, { useState } from "react";
+import React from "react";
 
-function CheckboxGroup({ name = "", options = [], initialValue = [] }) {
-  const [value, setValue] = useState(initialValue);
+const CheckboxGroup = (props) => {
+  const { name, value, control, options } = props;
 
   return (
     <div>
-      <h3>Checkbox Group</h3>
-      {options.map((option) => (
-        <div key={option.value}>
-          <label htmlFor={option.value}>
+      {options &&
+        options.map((option) => (
+          <div key={option.value}>
             <input
               type="checkbox"
               name={name}
+              id={`${name}-${option.value}`}
               value={option.value}
               checked={value.includes(option.value)}
-              onChange={(e) => {
-                if (e.target.checked) {
-                  setValue((previousValue) => [
+              onChange={(event) => {
+                if (event.target.checked) {
+                  control((previousValue) => [
                     ...previousValue,
-                    e.target.value,
+                    event.target.value,
                   ]);
                 } else {
-                  setValue((previousValue) =>
-                    previousValue.filter((v) => v !== e.target.value)
+                  control((previousValue) =>
+                    previousValue.filter((val) => val !== event.target.value)
                   );
                 }
               }}
             />
-            {option.label}
-          </label>
-        </div>
-      ))}
-      <span>Value: {value}</span>
+            <label htmlFor={`${name}-${option.value}`}>{option.label}</label>
+          </div>
+        ))}
     </div>
   );
-}
+};
 
 export default CheckboxGroup;

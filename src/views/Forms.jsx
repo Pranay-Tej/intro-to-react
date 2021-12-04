@@ -1,57 +1,179 @@
-import React from "react";
+import React, { useState, useMemo } from "react";
 import TextInput from "../components/forms/TextInput";
-import NumberInput from "../components/forms/NumberInput";
-import DateInput from "../components/forms/DateInput";
-import TimeInput from "../components/forms/TimeInput";
 import Select from "../components/forms/Select";
-import MultiSelect from "../components/forms/MultiSelect";
 import RadioGroup from "../components/forms/RadioGroup";
 import CheckboxGroup from "../components/forms/CheckboxGroup";
 import DynamicFormArray from "../components/forms/DynamicFormArray";
+import { format, parse } from "date-fns";
 
 function Forms() {
+  const [username, setUsername] = useState("");
+  const [age, setAge] = useState(18);
+  const [dateOfBirth, setDateOfBirth] = useState(
+    format(new Date(2000, 0, 1), "yyyy-MM-dd")
+  );
+
+  const formattedDate = useMemo(
+    () => format(parse(dateOfBirth, "yyyy-MM-dd", new Date()), "dd.MM.yyyy"),
+    [dateOfBirth]
+  );
+  const [timeOfBirth, setTimeOfBirth] = useState(
+    format(new Date().setHours(20, 30), "HH:mm")
+  );
+
+  const formattedTime = useMemo(
+    () => format(parse(timeOfBirth, "HH:mm", new Date()), "yyyy.MM.dd.HH.mm"),
+    [timeOfBirth]
+  );
+  const [country, setCountry] = useState();
+  const [plan, setPlan] = useState();
+  const [interestList, setInterestList] = useState([]);
+  const [addonList, setAddonList] = useState([]);
+  const [itemList, setItemList] = useState([]);
+
   return (
     <>
       <h2>Forms</h2>
-      <TextInput initialValue="React" />
-      <NumberInput initialValue={20} />
-      <DateInput initialValue={new Date(2000, 0, 1)} />
-      <TimeInput initialValue={new Date().setHours(20, 30)} />
+
+      <h2>Controlled Forms without Library</h2>
+
+      <h3>Text Input</h3>
+      <TextInput
+        name="Username"
+        type="text"
+        value={username}
+        control={setUsername}
+      />
+
+      <p>Name: {username}</p>
+
+      <hr />
+
+      <h3>Number Input</h3>
+      <TextInput name="Age" type="number" value={age} control={setAge} />
+
+      <p>Age: {age}</p>
+
+      <hr />
+
+      <h3>Date Input</h3>
+      <TextInput
+        name="Date of Birth"
+        type="date"
+        value={dateOfBirth}
+        control={setDateOfBirth}
+      />
+
+      <p>Date of Birth: {dateOfBirth}</p>
+      <span>Formatted Date: {formattedDate}</span>
+
+      <hr />
+
+      <h3>Time Input</h3>
+      <TextInput
+        name="Time of Birth"
+        type="time"
+        value={timeOfBirth}
+        control={setTimeOfBirth}
+      />
+
+      <p>Time of Birth: {timeOfBirth}</p>
+      <span>Formatted Time: {formattedTime}</span>
+
+      <hr />
+
+      <h3>Select</h3>
+
+      <h4>Single Select</h4>
       <Select
+        name="Country"
+        value={country}
+        control={setCountry}
         options={[
-          { value: "Angular", label: "Angular" },
-          { value: "React", label: "React" },
-          { value: "Vue", label: "Vue" },
+          { label: "India", value: "India" },
+          { label: "US", value: "US" },
+          { label: "Australia", value: "Australia" },
         ]}
-        initialValue={"React"}
       />
-      <MultiSelect
+      <p>Country: {country}</p>
+
+      <h4>Multi Select</h4>
+      <Select
+        name="Interests"
+        value={interestList}
+        control={setInterestList}
+        multiple={true}
         options={[
-          { value: "Angular", label: "Angular" },
-          { value: "React", label: "React" },
-          { value: "Vue", label: "Vue" },
+          { label: "Drawing", value: "Drawing" },
+          { label: "Games", value: "Games" },
+          { label: "Movies", value: "Movies" },
         ]}
-        initialValue={["React", "Angular"]}
       />
+      <p>
+        [
+        {interestList.map((interest, index) => (
+          <span key={interest}>
+            {interest}
+            {index < interestList.length - 1 ? ", " : ""}
+          </span>
+        ))}
+        ]
+      </p>
+
+      <hr />
+
+      <h3>Radio Group</h3>
+      <p>Choose a plan</p>
+
       <RadioGroup
-        name="car"
+        name="Plan"
         options={[
-          { value: "Angular", label: "Angular" },
-          { value: "React", label: "React" },
-          { value: "Vue", label: "Vue" },
+          { label: "Silver", value: "Silver" },
+          { label: "Gold", value: "Gold" },
+          { label: "Diamond", value: "Diamond" },
         ]}
-        initialValue={"React"}
+        control={setPlan}
+        value={plan}
       />
+      <p>Plan: {plan}</p>
+
+      <hr />
+
+      <h3>Checkbox Group</h3>
+      <p>Choose Addons</p>
+
       <CheckboxGroup
-        name="car"
+        name="Addons"
         options={[
-          { value: "Angular", label: "Angular" },
-          { value: "React", label: "React" },
-          { value: "Vue", label: "Vue" },
+          { label: "Laptop", value: "Laptop" },
+          { label: "Mobile", value: "Mobile" },
+          { label: "PC", value: "PC" },
         ]}
-        initialValue={["React", "Angular"]}
+        control={setAddonList}
+        value={addonList}
       />
-      <DynamicFormArray />
+      <p>
+        [
+        {addonList.map((addon, index) => (
+          <span key={addon}>
+            {addon}
+            {index < addonList.length - 1 ? ", " : ""}
+          </span>
+        ))}
+        ]
+      </p>
+
+      <DynamicFormArray value={itemList} control={setItemList} />
+      <p>
+        [
+        {itemList.map((item, index) => (
+          <span key={item}>
+            {item}
+            {index < itemList.length - 1 ? ", " : ""}
+          </span>
+        ))}
+        ]
+      </p>
     </>
   );
 }
