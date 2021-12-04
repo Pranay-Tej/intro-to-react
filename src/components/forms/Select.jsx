@@ -1,27 +1,37 @@
-import React, { useState } from "react";
+import React from "react";
 
-function Select({ options = [], initialValue = "" }) {
-  const [value, setValue] = useState(initialValue);
+const Select = (props) => {
+  const { name, value, control, options, multiple = false } = props;
 
   return (
     <div>
-      <h3>Select</h3>
+      <label htmlFor={name}>{name}</label>
       <select
-        name="selectDropDown"
-        id="selectDropDown"
+        name={name}
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        multiple={multiple}
+        onChange={(event) => {
+          let selectedValue;
+          if (multiple) {
+            selectedValue = [...event.target.selectedOptions].map(
+              (option) => option.value
+            );
+          } else {
+            selectedValue = event.target.value;
+          }
+          control(selectedValue);
+        }}
       >
-        <option value="">Select Value</option>
+        {!multiple && <option value="">Select {name}</option>}
+
         {options.map((option) => (
           <option value={option.value} key={option.value}>
             {option.label}
           </option>
         ))}
       </select>
-      <span>Value: {value}</span>
     </div>
   );
-}
+};
 
 export default Select;

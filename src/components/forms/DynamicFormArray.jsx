@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-function DynamicFormArray({ initialValue = [] }) {
-  const [value, setValue] = useState(initialValue);
+function DynamicFormArray(props) {
+  const { value, control } = props;
 
   return (
     <div>
-      <h3>Text Input</h3>
+      <h3>Dynamic Form Array</h3>
       {value.map((v, i) => (
         <div key={i}>
           <input
@@ -25,7 +25,6 @@ function DynamicFormArray({ initialValue = [] }) {
       >
         +
       </button>
-      <span>Value: {value}</span>
     </div>
   );
 }
