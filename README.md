@@ -100,3 +100,10 @@
   - [ ] Redux like store
   - [ ] Splitting store into slices
   - [ ] Middleware
+
+### 8. Multiple Configurations
+
+- [ ] env variables configuration
+- [ ] npm scripts
+  - [ ] multiple dev setups
+  - [ ] multiple prod builds
