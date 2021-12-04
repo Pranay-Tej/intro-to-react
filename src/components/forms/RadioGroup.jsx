@@ -1,28 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 
-function RadioGroup({ name = "", options = [], initialValue = "" }) {
-  const [value, setValue] = useState(initialValue);
+const RadioGroup = (props) => {
+  const { name, value, control, options } = props;
 
   return (
     <div>
-      <h3>Radio Group</h3>
-      {options.map((option) => (
-        <div key={option.value}>
-          <label htmlFor={option.value}>
+      {options &&
+        options.map((option) => (
+          <div key={option.value}>
             <input
               type="radio"
               name={name}
+              id={`${name}-${option.value}`}
               value={option.value}
               checked={option.value === value}
-              onChange={(e) => setValue(e.target.value)}
+              onChange={(event) => control(event.target.value)}
             />
-            {option.label}
-          </label>
-        </div>
-      ))}
-      <span>Value: {value}</span>
+            <label htmlFor={`${name}-${option.value}`}>{option.label}</label>
+          </div>
+        ))}
     </div>
   );
-}
+};
 
 export default RadioGroup;

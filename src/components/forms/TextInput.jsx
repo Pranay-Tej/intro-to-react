@@ -1,19 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 
-function TextInput({ initialValue = "" }) {
-  const [value, setValue] = useState(initialValue);
-
+const TextInput = (props) => {
+  const { name, value, type, control } = props;
   return (
     <div>
-      <h3>Text Input</h3>
+      <label htmlFor={name}>{name}</label>
       <input
-        type="text"
+        type={type}
+        name={name}
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={(event) => control(event.target.value)}
       />
-      <span>Value: {value}</span>
     </div>
   );
-}
+};
 
 export default TextInput;
